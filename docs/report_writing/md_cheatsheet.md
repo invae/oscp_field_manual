@@ -82,4 +82,4 @@ ___
 * [ ] Task 3
 
 picture
-![ is path needed? maybe for other mediums,. include relative paths, unique names ](../pics/this_is_a_photo.png)
+![ is path needed? maybe for other mediums,. include relative paths, unique names ](this_is_a_photo.png)

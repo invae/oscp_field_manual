@@ -1,8 +1,8 @@
-# proof of concepts
+# proof of concept
 
 often when trouble shooting exploits we must understand syntax specific to some programming language
 
-# vulnerability specific tips
+## vulnerability specific tips
 > When doing research on specific protocols consult:
 ```sh
 RFC/IETF 			# internet engineering task force
@@ -12,13 +12,16 @@ RFC/IETF 			# internet engineering task force
 
 
 ## command execution
+
+> If you control config files, you can likely get command execution
+
 Try the most base, elemental, features of command execution; such as id, ping etc. 
 
 Ping + tcmpdump icmp is especially good for blind/limited feedback RCE!!
 
 
-# language specific tips
-## python
+## language specific tips
+### python
 > interactive mode
 ```python
 python -i exploit.py 			; runs script in interactive mode, interprets all lines then maintains so u can interact
@@ -63,7 +66,7 @@ sys.stdout.write( f"..." ) # creates some nice rolling text due
 sys.stdout.flush()         # do this when done to clear the write buffer
 ```
 
-## php
+### php
 > interactive mode
 ```php
 php -a		

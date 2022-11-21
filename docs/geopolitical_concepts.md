@@ -1,4 +1,4 @@
-# abstraction_of_geopolitical_concepts
+# geopolitical_concepts
 
 Each section of this document includes:
 - a brief introduction to the concept
@@ -7,7 +7,7 @@ Each section of this document includes:
 - considerations
 
 
-# control - impose your will on the adversary 
+## control - impose your will on the adversary 
 > "... supposing to ourselves two wrestlers. Each strives by physical force to compel the other to submit to his will: each endeavors to throw his adversary, and thus render him incapable of further resistance.  
 > 
 > War therefore is an act of violence intended to compel our opponent to fulfill our will.”  
@@ -17,7 +17,7 @@ Each section of this document includes:
 The concept we are abstracting is "imposition of your will on another entity". This is not limited to governments and violence. Enterprises and non-capitalist entities will also adopt aspects of these concepts in their pursuit of competition.
 
 
-## DIME
+### DIME
 > An acronym used in geopolitical discourse to describe how a government can impose their will on another entity
 
 - Diplomacy
@@ -26,14 +26,14 @@ The concept we are abstracting is "imposition of your will on another entity". T
 - Economy
 
 
-### Diplomacy
+#### Diplomacy
 Almost no abstraction needed here.  Notably, diplomacy is often limited to within the respective organizations. 
 
 For both red and blue teams:
 - diplomatic relations between other friendly teams is often what leadership contributes to on the day to day
 
 
-### Information
+#### Information
 Interpret this literally. Control over information is what we do.
 
 
@@ -48,7 +48,7 @@ A Red team could implement the following:
 - emulate the TTPs of another red team
 
 
-### Military
+#### Military
 The notion of military power can be abstracted to include any kinetic means. Kinetic means offer some of the best opportunities for creativity. Alongside these opportunities however are also opportunites to step out of professional scope. Caution is advised. 
 
 
@@ -64,7 +64,7 @@ A red team could implement kinetic means in the following ways:
 - destructive methods for initial access or to create a situation. Note that this is extremely unlikely to ever be within scope
 
 
-### Economy
+#### Economy
 Money is just another resource. It is a way for imposing your will on the world. Most implemtations of geopolitical economic actions do not translate to our activities, they would be out of professional scope. It is important to consider that the only reason corporate security roles exist is due to their economic impact. Direct action on the adversary's economy is almost universally out of professional scope. 
 
 
@@ -77,10 +77,10 @@ A red team could implement the following:
 - limiting your budget and producing significant results can lend a great weight to your findings
 
 
-# treason - targeting the human element
+## treason - targeting the human element
 Humans are the weakpoint in most modern organizations. We abstract *treason* as a representation of an insider threat. This can be further abstracted to *reasons for which an individual's interests diverge from the organization's interests*.
 
-## MICE
+### MICE
 > An acronym for memorizing some common motives for treason. 
 
 - Money
@@ -91,7 +91,7 @@ Humans are the weakpoint in most modern organizations. We abstract *treason* as 
 These can be applied to social engineering campaigns to leverage insiders to enable our operations. These also prove to be valuable considerations when strategizing for defensive engagements. 
 
 
-### Money
+#### Money
 Unlikely to be within scope for the red team, except in the case of employee retention. However, as blue it must be considered. 
 
 The following questions are good starters for strategy:
@@ -100,7 +100,7 @@ The following questions are good starters for strategy:
 - are our employees vulnerable to traditional bribes? is it likely that could happen?
 
 
-### Ideology
+#### Ideology
 This concept should be the highest priority for your considerations. 
 
 The following questions are relevant for both red and blue teams:
@@ -113,14 +113,14 @@ Notably for the red team, trying to social engineer someone's ideology into init
 - is this ethical?
 
 
-### Coercion
+#### Coercion
 Unlikely to be within scope for either team. I am hesitant to outright suggest anything here. This section is left as an exercise to the reader. 
 
 - please use your best judgement.
 - before implentation, please "sanity check" any ideas you may have against an secondary source
 
 
-### Ego
+#### Ego
 Operationalizing this concept is not straight forward. The concept itself is as follows: *someone whose ego is not satisfied by their work is vulnerable to commiting treason*. 
 
 Blue teams should care about this for the following reasons:

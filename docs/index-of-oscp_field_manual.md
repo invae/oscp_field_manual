@@ -11,5 +11,5 @@
 [[index-of-shells]]
 [[index-of-web_enumeration]]
 [[index-of-windows]]
-[[abstraction_of_geopolitical_concepts]]
+[[geopolitical_concepts]]
 

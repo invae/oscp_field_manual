@@ -5,7 +5,7 @@
 - [[index-of-hash_cracking]]
 - [[index-of-linux]]
 - [[index-of-metasploit_framework]]
-- [[oscp_field_manual_home]]
+- [[index]]
 - [[proof_of_concept]]
 - [[index-of-report_writing]]
 - [[index-of-shells]]

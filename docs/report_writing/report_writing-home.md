@@ -10,7 +10,7 @@ The following are good references for style. They include examples and direct ad
 
 ## Key Takeaways
 ### Language is Important; Be Concise
-![ language is important ](probability-confidence-levels.png)
+![ language is important ](/pics/probability-confidence-levels.png)
 
 ### Know Your Audience
 Does this piece have a need for an executive summary? Is the audience tecnical, what should be shown and what should be left to the reader? Why does this writing exist?

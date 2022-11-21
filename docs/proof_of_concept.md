@@ -17,7 +17,7 @@ RFC/IETF 			# internet engineering task force
 
 Try the most base, elemental, features of command execution; such as id, ping etc. 
 
-Ping + tcmpdump icmp is especially good for blind/limited feedback RCE!!
+Ping + tcpdump icmp is especially good for blind/limited feedback RCE!!
 
 
 ## language specific tips

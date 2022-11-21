@@ -1,3 +1,3 @@
-[[md_cheatsheet]]
-[[report_writing-home]]
+- [[md_cheatsheet]]
+- [[report_writing-home]]
 

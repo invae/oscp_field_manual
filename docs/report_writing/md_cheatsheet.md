@@ -71,6 +71,7 @@ ___
 ```
 
 <!-- Tables --> note that the first 2 lines must line up nicely, also no subcollumns
+
 | Name     | Email          |
 | -------- | -------------- |
 | John Doe | john@gmail.com |

@@ -1,2 +1,2 @@
-[[lin_enumeration]]
-[[persistence]]
+- [[lin_enumeration]]
+- [[persistence]]

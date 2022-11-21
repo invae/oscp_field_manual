@@ -1,1 +1,1 @@
-[[active-directory-fundamentals]]
+- [[active-directory-fundamentals]]

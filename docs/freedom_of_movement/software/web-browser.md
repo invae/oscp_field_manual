@@ -27,6 +27,11 @@ ctrl+shift+t
 ctrl+t
 ```
 
+> do a search with default search engine, usually google
+```
+ctrl+e
+```
+
 > cycle right in tabs
 ```
 ctrl+tab

@@ -1,4 +1,5 @@
-# bash isms
+# bash_isms
+
 > bash default vars
 ```bash
 echo $?      # gives error code of most recently run command
@@ -69,9 +70,12 @@ E.g. when doing tar GTFO bins priv esc
 ```sh
 alt+.  # hotkey for use last argument
 cd -   # cd to last working dir
-ctrl+r # reverse search previous cmds
+ctrl+r # reverse search previous cmds, press multiple times to see next result
 ```
 
 
-
+> follow script directory traversal, potent for "day-start" and "new project" scripts. From a systems programming, perspective it is as if the `fork()` or `clone()` is not called (UNVERIFIED). The work is done by the parent itself. 
+```shell
+. script.sh
+```
 

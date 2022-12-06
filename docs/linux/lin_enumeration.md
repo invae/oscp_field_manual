@@ -204,7 +204,7 @@ vmware
 
 > /proc still exists, consider reading the following
 ```sh
-/proc/net/tcp       # buget netstat
+/proc/net/tcp       # budget netstat
 /proc/self          # traditional LFI file
 /proc/sched_debug   # running process//services
 /proc/PID/maps      # replace process id, access virt address for binary exploit

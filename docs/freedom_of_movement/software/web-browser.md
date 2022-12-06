@@ -27,8 +27,9 @@ ctrl+shift+t
 ctrl+t
 ```
 
-> do a search with default search engine, usually google
+> do a search with default search engine, usually google, `ctrl+k` is more reliable
 ```
+ctrl+k
 ctrl+e
 ```
 

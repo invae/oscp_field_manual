@@ -37,6 +37,8 @@ ffuf -w /path/to/wordlist -u https://target/FUZZ
 
 ```
 
+
+
 ## XSS cookie stealing
 
 > host a malicious js; attempts to steal cookie

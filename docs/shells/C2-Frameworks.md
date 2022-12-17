@@ -16,8 +16,8 @@ notice
 
 ### some nuance and gotchas
 
-- Payloads with `shell/reverse_tcp` is staged 	
-- Payloads with `shell_reverse_tcp` is unstaged 
+- Payloads with `shell/reverse_tcp` are staged 	
+- Payloads with `shell_reverse_tcp` are unstaged 
 - sometimes it says meterpreter instead of shell, these require the meterpreter multihandler to catch them
 - notice the `/_` between shell and reverse
 	- `/` is staged

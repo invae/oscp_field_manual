@@ -5,4 +5,5 @@
 - [[index-of-services]]
 - [[serving_files]]
 - [[index-of-software]]
+- [[cmdline_analysis]]
 

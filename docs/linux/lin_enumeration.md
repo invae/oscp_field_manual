@@ -1,4 +1,4 @@
-# Basic Enumeration of Linux 
+# linux_enumeration 
 Answer the following every time:
 
 - who is this user?  -> enumerate the `/opt` directory !! search for files owned by the user
@@ -81,6 +81,18 @@ find -group CUSTOM_GROUPNAME 2>/dev/null
 
 
 ## geography & basis of reality
+
+> what version/release is the OS?
+```cmd
+cat /etc/*rel*
+```
+
+> find compiler tools; shows compilers in dpkg list, can be extended to any package manager
+```cmd
+dpkg --list | grep -i compiler
+```
+
+
 > host identity
 ```sh
 hostname           ; give hostname

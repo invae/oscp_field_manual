@@ -1,5 +1,15 @@
 # shell_upgrades
 
+## this is what you came here for
+
+```bash
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+export TERM=xterm
+stty rows 37 cols 172
+```
+> follow this with `CTRL+Z` then   `stty raw -echo;fg` `ENTER ENTER`
+
+
 ## Technique 0: script
 kind of like a poor version of python/rlwrap
 stty does NOT behave nicely so it can cause display issues

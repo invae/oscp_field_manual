@@ -1,2 +1,3 @@
 - [[msfvenom]]
 - [[searchsploit]]
+- [[msfconsole]]

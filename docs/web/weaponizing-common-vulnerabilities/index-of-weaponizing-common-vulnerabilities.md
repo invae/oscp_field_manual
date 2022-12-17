@@ -1,0 +1,2 @@
+- [[purpose-of-weaponizing-common-vulnerabilities]]
+- [[LFI-and-SMTP-gives-RCE]]

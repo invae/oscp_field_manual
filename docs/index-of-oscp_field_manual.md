@@ -9,7 +9,7 @@
 - [[proof_of_concept]]
 - [[index-of-report_writing]]
 - [[index-of-shells]]
-- [[index-of-web_enumeration]]
+- [[index-of-web]]
 - [[index-of-windows]]
 - [[geopolitical_concepts]]
 

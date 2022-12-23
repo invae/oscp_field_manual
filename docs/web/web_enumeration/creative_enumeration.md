@@ -51,3 +51,9 @@ writes victim cookie into web request, cookie visible in 'GET request' / 'web se
 */
 ```
 
+
+## notable http headers - Wall of Shame
+
+> everytime I get owned by missing a particular header, I will add it to this list
+
+- `X-Powered-By`

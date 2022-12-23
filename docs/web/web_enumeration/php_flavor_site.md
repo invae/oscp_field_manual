@@ -15,6 +15,12 @@ if it exists, the webiste is running php
 ```
 
 
+> if having trouble finding the `config.php` type files in post exploitation, search for these near top of the file
+```php
+require_once( path/to/config.php );
+```
+
+
 ## common php website vulnerabilities
 
 ### local file inclusion - LFI

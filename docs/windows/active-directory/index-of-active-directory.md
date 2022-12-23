@@ -1,1 +1,2 @@
 - [[active-directory-fundamentals]]
+- [[kerberoasting-and-other-hash-attacks]]

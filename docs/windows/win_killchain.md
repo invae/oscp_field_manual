@@ -16,5 +16,9 @@
 ```
 %AppData%
 usually is C:\Users\USER_NAME\AppData\Roaming
+
+C:\windows\tasks
+
+C:\temp
 ```
 

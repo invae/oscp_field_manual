@@ -6,6 +6,27 @@ The goal of Active Directory is to provide domain services to a network (AD DS).
 
 This is an attractive attack surface because if you can control the information inside active directory, then you have control over the environment. 
 
+## Semantics: Domain VS Workgroup
+
+- default domain is `WORKGROUP` or `HOSTNAME`
+
+- WORKGROUP is a LAN of peer to peer machines
+	- microsoft term for any network of peer2peer machines
+	- emphasis on PEER; no computer controls others
+	- each computer has its own user accounts
+	- all devices are part of same subnet
+	- limited to 10-20 devices, smaller counts overall
+
+- DOMAIN is a network of objects that share the same Active Directory Databases
+	- accounts are DOMAIN wide
+	- any device part of domain will acknowledge the account, provided policy
+	- there is a domain controler, a DC. Acts as a server to control member objects of the AD
+	- devices can be on differing subnets but be part of same DOMAIN
+	- 100-1000+ devices, 
+
+
+
+
 ## Physical Traits of Active-Directory
 
 ### Domain Controllers

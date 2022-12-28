@@ -19,3 +19,5 @@
 - perm 644 for a pub_key 
 - private key DOES NOT go on the target; but perm 600 for id_rsa
 - home directory is usally at most perm 755
+
+> modify the `motd` file to refresh your persistence. `motd` is a bash script that runs upon login.

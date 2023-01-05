@@ -3,6 +3,7 @@
 often when trouble shooting exploits we must understand syntax specific to some programming language
 
 ## vulnerability specific tips
+
 > When doing research on specific protocols consult:
 ```sh
 RFC/IETF 			# internet engineering task force
@@ -15,14 +16,27 @@ RFC/IETF 			# internet engineering task force
 
 > If you control config files, you can likely get command execution
 
-Try the most base, elemental, features of command execution; such as id, ping etc. 
+Try the most base, elemental, features of command execution; such as `id`, `ping` etc. 
 
-Ping + tcpdump icmp is especially good for blind/limited feedback RCE!!
+- The `ping` + `tcpdump icmp` method is especially good for blind/limited feedback RCE!!
+
+
+## cmdline http traffic
+
+In bash the env var `http_proxy` will cause any http traffic of your child processes to pass through the proxy you specify.
+
+```bash
+export http_proxy 127.0.0.1:8080
+# or wherever you have burp setup to listen
+```
+
+This is particularly useful for troubleshooting exploits and scripts. 
 
 
 ## language specific tips
 
 ### python
+
 > interactive mode
 ```python
 python -i exploit.py 			; runs script in interactive mode, interprets all lines then maintains so u can interact
@@ -68,6 +82,7 @@ sys.stdout.flush()         # do this when done to clear the write buffer
 ```
 
 ### php
+
 > interactive mode
 ```php
 php -a		

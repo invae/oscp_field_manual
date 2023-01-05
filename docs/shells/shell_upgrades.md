@@ -11,6 +11,7 @@ stty rows 37 cols 172
 
 
 ## Technique 0: script
+
 kind of like a poor version of python/rlwrap
 stty does NOT behave nicely so it can cause display issues
 
@@ -43,6 +44,7 @@ bash
 
 
 ## Technique 1: python
+
     python -c 'import pty;pty.spawn("/bin/bash")' 
     export TERM=xterm -- this will give us access to term commands such as clear. 
     Ctrl + Z. (background the shell on attacker machine)
@@ -57,6 +59,7 @@ Last 2 steps does two things:
 
 
 ## Technique 2: rlwrap
+
 Useful for Windows Shell stabilization (Notoriously difficult)
 Gives access to history, tab complete, arrow keys 
 NO ACCESS TO CTRL+C BY DEFAULT

@@ -1,5 +1,7 @@
 # Hotkeys & keystokes
+
 ## keyboard movements
+
 > jump to URL bar
 ```
 ctrl+l
@@ -49,6 +51,7 @@ alt+arrowkeys
 ```
 
 ## mouse movements
+
 > select non-contiguous collection of tabs
 ```
 ctrl+click
@@ -64,5 +67,6 @@ click last tab
 The above to mouse movents can be combined with `ctrl+w` to close collections of tabs enmasse.
 
 ## unexpected features and fun facts
+
 1. URL bar indexes favorited items and history by default, useful for navigating the psycotic bookmark folder structre you no doubt have. 
 

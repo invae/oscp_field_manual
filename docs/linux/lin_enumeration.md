@@ -207,12 +207,22 @@ wget
 
 
 ## help, I am in a container
+
 > investigate root for strange files or dirs such as
-```
+```bash
 dockerenv
 vbox
 vmware
 ```
+
+
+> enumerate `/dev` for inappropriate mounts
+```bash
+often during dev, things are mounted for simplicity
+things can be overlooked/forgotten
+exploit their oversight
+```
+
 
 > /proc still exists, consider reading the following
 ```sh
@@ -221,6 +231,7 @@ vmware
 /proc/sched_debug   # running process//services
 /proc/PID/maps      # replace process id, access virt address for binary exploit
 ```
+
 - these are also powerful when local file inclusion vulnerabilty is discovered.
 - **unfamiliar output** should be googled, it is not being parsed by `netstat` so you must parse it yourself. see alternate expressions of ip address 
 

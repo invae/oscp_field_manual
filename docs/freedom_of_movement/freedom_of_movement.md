@@ -41,28 +41,7 @@ use awk as often as possible; valuable tool; must get better at this
 ```
 
 
-## tmux
 
-> for less psychotic keybinds
-```
-/home/.tmux.conf
-```
-
-> searching tmux history; works in broken/scuffed shells
-```
-ACTION_KEYBIND
-'['							; enters 'copy mode' whatever that is, allows for searching text
-CTRL+S 						; search down, from begining of history to present
-alternatively...
-CTRL+R 						; search 'reverse' from present backwards, i prefer this one
-CTRL+SPACE 					; start highlighting text in copy mode
-CTRL+W 						; copy highlighted text
-```
-
-> kill current pane
-```
-CTRL+D 						; just like a python REPL- read evaluate print loop
-``` 
 
 ## MSF Framework
 
@@ -121,5 +100,11 @@ jq tool  # very useful commandline tool for beautifying/dealing with json return
 ```
 
 
+## no text editor available
 
+Use the `grep` and `sed` method. This can be explained in roughly 2 steps.
 
+1. use `grep -n` to output the line number, `x`, of whatever your pattern matches
+2. use `sed 'xs/FIND/REPLACE/'`, to make modifications. Note that `x` is the integer found in step1
+
+This works because `sed` is a line based text mangler. 

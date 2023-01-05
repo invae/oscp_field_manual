@@ -29,7 +29,7 @@ This page serves as a reference to be used during operations. Included items are
 	4. review the ouput of enumeration scripts, they commonly miss the following
 		1. `cmdkey /list`
 		2. scheduled tasks
-		3. startup apps
+		3. startup apps ( weak perms; running as system) 
 		4. access control permissions on registry services
 		5. Saved credentials in tools such as `PuTTY`
 		6. credentials saved in registry keys
@@ -51,7 +51,16 @@ Get-Content $env:windir\System32\Drivers\etc\hosts
 Get-Content $env:appdata\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt
 ```
 
+## manual enumeration
 
+When default activity is inappropriate or fails, we can conduct the following
+
+### prepared statements
+
+> find all services, not configured by windows (non-default services)
+```powershell
+wmic service get name,displayname,pathname,startmode | findstr /v /i "C:\Windows"
+```
 
 ## powershell
 

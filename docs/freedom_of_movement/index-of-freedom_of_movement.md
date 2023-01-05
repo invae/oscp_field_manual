@@ -6,4 +6,7 @@
 - [[serving_files]]
 - [[index-of-software]]
 - [[cmdline_analysis]]
+- [[tmux]]
+- [[vi_or_vim]]
+
 

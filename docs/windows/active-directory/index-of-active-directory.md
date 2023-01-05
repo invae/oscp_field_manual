@@ -1,2 +1,4 @@
 - [[active-directory-fundamentals]]
 - [[kerberoasting-and-other-hash-attacks]]
+- [[ldap]]
+- [[if_then_enumerations]]

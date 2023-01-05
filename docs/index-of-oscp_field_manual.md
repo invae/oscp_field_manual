@@ -1,5 +1,4 @@
 - [[index-of-binary_exploitation]]
-- [[index-of-databases]]
 - [[index-of-firewall_evasion]]
 - [[index-of-freedom_of_movement]]
 - [[index-of-hash_cracking]]

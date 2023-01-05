@@ -3,6 +3,28 @@
 This section contains interesting quirks/tricks to the msfconsole. May include some basic usage guides. 
 
 
+## issues with process migration
+
+The case study is the exploit suggester for Windows targets. The sugestor should be run in both 32 bit and 64 bit modules, as the results may differ. The attack surface will be the union of the sets of the outputs. 
+
+> migration from 32 to 64 may cause subsequent exploits to fail, silently, or with minimal feedback. Process migration is appropriate if attempting to avoid detection or if exploit suggestor module is not necessary. Migrating to a process of the same architecture is advised. 
+
+
+Example workflow, full enumeration
+
+1. Catch a 32 bit meterpreter shell
+2. Run 32 bit suggester via 32 bit meterpreter shell
+3. Catch a 64 bit meterpreter shell, we now have **two** distinct sessions
+4. run 64 bit suggestor via meterpreter shell
+5. Analyse the suggested attack surface 
+6. Run exploits in the according 32 or 64 bit sessions
+
+Opsec to be considered 
+
+- additional noise in the process tree of multiple sessions
+- more disk traces to clean up, we have a 32 and 64 bit agent present
+
+
 ## get pretty/extended exploit info
 
 Use this command to generate a `.HTML` doc in `/tmp` for nicer, more detailed viewing

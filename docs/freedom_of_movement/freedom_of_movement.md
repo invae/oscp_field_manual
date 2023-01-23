@@ -105,6 +105,37 @@ jq tool  # very useful commandline tool for beautifying/dealing with json return
 Use the `grep` and `sed` method. This can be explained in roughly 2 steps.
 
 1. use `grep -n` to output the line number, `x`, of whatever your pattern matches
-2. use `sed 'xs/FIND/REPLACE/'`, to make modifications. Note that `x` is the integer found in step1
+2. use `sed -i 'xs/FIND/REPLACE/'`, to make modifications in place. Note that `x` is the integer found in step1 and  the `-i` flag is necessary to write the changes.
 
 This works because `sed` is a line based text mangler. 
+
+
+## interacting with tar binary -
+
+> tarballs, better zip files! GNU/Linux better archiving software
+
+### make tarball
+
+```bash
+tar -cjvf TARGET_NAME.tar.bz2  ~/path/to/uncompressed/target
+```
+
+- `-v` verbose
+- `-c` create
+- `-j` use bzip? if not bzip, then this is compression type
+- `-f` file name
+- if the above fails, carefully consider using wildcards
+
+
+### extract tarball
+
+> prepare a temp directory, might **clobber workind dir**
+
+```bash
+tar -xjvf
+```
+
+- `-v` verbose
+- `-x` extract
+- `-j` use bzip? if not bzip, then this is compression type
+- `-f` file name

@@ -232,7 +232,7 @@ exploit their oversight
 /proc/PID/maps      # replace process id, access virt address for binary exploit
 ```
 
-- these are also powerful when local file inclusion vulnerabilty is discovered.
+- these are also powerful when local file inclusion vulnerability is discovered.
 - **unfamiliar output** should be googled, it is not being parsed by `netstat` so you must parse it yourself. see alternate expressions of ip address 
 
 

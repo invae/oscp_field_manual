@@ -2,7 +2,7 @@
 
 ## Creating Initial Userlists
 
-If passive recon fails to populate userlists, then we can populate a userlist by bruteforcing RIDs. Try with all of the followin:  `Guest` , `''` (NULL) , and `anonymous`  (non-exsistent user and any pass) authentication. 
+If passive recon fails to populate userlists, then we can populate a userlist by bruteforcing RIDs. Try with all of the following:  `Guest` , `''` (NULL) , and `anonymous`  (non-existent user and any pass) authentication. 
 
 ```cmd
 lookupsid.py Guest@$ip 
@@ -53,7 +53,7 @@ Here is a list of nice reads or viewings on the topic
 
 Generally the "post exploitation" of a successful `secretdump.py` or other `mimikatz` like dumping of creds from Local Security Authority Subsystem `lsass.exe` process, Security Accounts Manager `SAM`, Credential manager `CredMan`, or even `ntds.dit` database. 
 
-- The resulting hashes can be used to spray accross the environment for further access.
+- The resulting hashes can be used to spray across the environment for further access.
 - Hash-based authentication like this is not always possible, it can be explicitly disabled.
 - Alternatively, if username/password authentication fails, hash based authentication should be attempted too in order to cover edge cases. User-pass disabled, hash enabled.
 
@@ -61,7 +61,7 @@ Generally the "post exploitation" of a successful `secretdump.py` or other `mimi
 wmiexec.py -hashes LM-HASH:NTLM-HASH USER@$ip
 ```
 
-Other tools which enable hash-based authentication attemtps
+Other tools which enable hash-based authentication attempts
 
 - `smbexec.py`
 - `evil-winrm`

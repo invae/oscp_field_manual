@@ -4,11 +4,12 @@ Each section of this document includes:
 
 - a brief introduction to the concept
 - a break down of the concept into its component parts
-- a red team and a blue team implementation of the compenent part
+- a red team and a blue team implementation of the component part
 - considerations
 
 
 ## control - impose your will on the adversary 
+
 > "... supposing to ourselves two wrestlers. Each strives by physical force to compel the other to submit to his will: each endeavors to throw his adversary, and thus render him incapable of further resistance.  
 > 
 > War therefore is an act of violence intended to compel our opponent to fulfill our will.”  
@@ -19,6 +20,7 @@ The concept we are abstracting is "imposition of your will on another entity". T
 
 
 ### DIME
+
 > An acronym used in geopolitical discourse to describe how a government can impose their will on another entity
 
 - Diplomacy
@@ -36,6 +38,7 @@ For both red and blue teams:
 
 
 #### Information
+
 Interpret this literally. Control over information is what we do.
 
 
@@ -43,7 +46,7 @@ A blue team could implement the following:
 
 - do not disclose more than what is required to friendlies
 - security awareness campaigns
-- do not publically announce anything that is not absolutely necessary
+- do not publicly announce anything that is not absolutely necessary
 
 A Red team could implement the following:
 
@@ -53,7 +56,8 @@ A Red team could implement the following:
 
 
 #### Military
-The notion of military power can be abstracted to include any kinetic means. Kinetic means offer some of the best opportunities for creativity. Alongside these opportunities however are also opportunites to step out of professional scope. Caution is advised. 
+
+The notion of military power can be abstracted to include any kinetic means. Kinetic means offer some of the best opportunities for creativity. Alongside these opportunities however are also opportunities to step out of professional scope. Caution is advised. 
 
 
 A blue team could implement kinetic means in the following ways:
@@ -65,18 +69,18 @@ A blue team could implement kinetic means in the following ways:
 
 A red team could implement kinetic means in the following ways:
 
-- use of drones to gain access to wifi
+- use of drones to gain access to WIFI
 - tailgating: following closely through a checkpoint to circumvent authentication
 - destructive methods for initial access or to create a situation. Note that this is extremely unlikely to ever be within scope
 
 
 #### Economy
-Money is just another resource. It is a way for imposing your will on the world. Most implemtations of geopolitical economic actions do not translate to our activities, they would be out of professional scope. It is important to consider that the only reason corporate security roles exist is due to their economic impact. Direct action on the adversary's economy is almost universally out of professional scope. 
+Money is just another resource. It is a way for imposing your will on the world. Most implementations of geopolitical economic actions do not translate to our activities, they would be out of professional scope. It is important to consider that the only reason corporate security roles exist is due to their economic impact. Direct action on the adversary's economy is almost universally out of professional scope. 
 
 
 A blue team could implement the following:
 
-- buget considerations, spend all or return a residue ?
+- budget considerations, spend all or return a residue ?
 - argue based of the economic impact of failure to comply
 
 A red team could implement the following:
@@ -86,9 +90,11 @@ A red team could implement the following:
 
 
 ## treason - targeting the human element
-Humans are the weakpoint in most modern organizations. We abstract *treason* as a representation of an insider threat. This can be further abstracted to *reasons for which an individual's interests diverge from the organization's interests*.
+
+Humans are the weak point in most modern organizations. We abstract *treason* as a representation of an insider threat. This can be further abstracted to *reasons for which an individual's interests diverge from the organization's interests*.
 
 ### MICE
+
 > An acronym for memorizing some common motives for treason. 
 
 - Money
@@ -115,7 +121,7 @@ This concept should be the highest priority for your considerations.
 The following questions are relevant for both red and blue teams:
 
 - do the actions of the company align with the morals and ethics of its employees?
-- is "whistle blowing" a possibility for employees? do the laws of the containing country favor wistleblowers or the enterprise?
+- is "whistle blowing" a possibility for employees? do the laws of the containing country favor whistleblowers or the enterprise?
 
 Notably for the red team, trying to social engineer someone's ideology into initial access should have at a minimum the following considerations:
 
@@ -128,16 +134,17 @@ Notably for the red team, trying to social engineer someone's ideology into init
 Unlikely to be within scope for either team. I am hesitant to outright suggest anything here. This section is left as an exercise to the reader. 
 
 - please use your best judgement.
-- before implentation, please "sanity check" any ideas you may have against an secondary source
+- before implementation, please "sanity check" any ideas you may have against an secondary source
 
 
 #### Ego
-Operationalizing this concept is not straight forward. The concept itself is as follows: *someone whose ego is not satisfied by their work is vulnerable to commiting treason*. 
+
+Operationalizing this concept is not straight forward. The concept itself is as follows: *someone whose ego is not satisfied by their work is vulnerable to committing treason*. 
 
 Blue teams should care about this for the following reasons:
 
 - employee retention
-- securing employees enables a secure workpace
+- securing employees enables a secure workplace
 - insider threats are a rising trend; motives often cited are retaliation for workplace mistreatment
 
 Red teams should consider the following:

@@ -11,7 +11,7 @@ This is an attractive attack surface because if you can control the information 
 - default domain is `WORKGROUP` or `HOSTNAME`
 
 - WORKGROUP is a LAN of peer to peer machines
-	- microsoft term for any network of peer2peer machines
+	- Microsoft term for any network of peer2peer machines
 	- emphasis on PEER; no computer controls others
 	- each computer has its own user accounts
 	- all devices are part of same subnet
@@ -20,7 +20,7 @@ This is an attractive attack surface because if you can control the information 
 - DOMAIN is a network of objects that share the same Active Directory Databases
 	- accounts are DOMAIN wide
 	- any device part of domain will acknowledge the account, provided policy
-	- there is a domain controler, a DC. Acts as a server to control member objects of the AD
+	- there is a domain controller, a DC. Acts as a server to control member objects of the AD
 	- devices can be on differing subnets but be part of same DOMAIN
 	- 100-1000+ devices, 
 
@@ -33,7 +33,7 @@ This is an attractive attack surface because if you can control the information 
 
 - hosts a copy of the AD DS directory store
 - provides authentication/authorization service for the domain
-- replication, updates to one DC propogate throughout the domain and forest
+- replication, updates to one DC propagate throughout the domain and forest
 - admin access to manage user accounts and network resources
 
 
@@ -52,13 +52,13 @@ Traits of AD DS data store:
 
 ## Logical Components of Active-Directory
 
-This section mostly of defintions and brief notes.
+This section mostly of definitions and brief notes.
 
 ### AD DS Schema
 
 > Enforces rules about object creation
 
-This contains defintions of objects that can be created. Want to create a user object? The definition exists as part of the AD DS Schema. Which attributes is an object allowed to have? This is defined here too. The AD DS Schema is exhaustive, if a definition for an object, a prototype, does not exist within it then the object cannot be created. 
+This contains definitions of objects that can be created. Want to create a user object? The definition exists as part of the AD DS Schema. Which attributes is an object allowed to have? This is defined here too. The AD DS Schema is exhaustive, if a definition for an object, a prototype, does not exist within it then the object cannot be created. 
 
 
 ### Objects
@@ -68,7 +68,7 @@ This contains defintions of objects that can be created. Want to create a user o
 examples
 
 - Users: enables network resource access
-- InetOrgPerson: similar to user, used for compatability
+- InetOrgPerson: similar to user, used for compatibility
 - Contacts: No network access, enables assigning emails to external users
 - Groups: Administrative tool, form collections of objects, theses are similar to Organizational Units
 - Computers: Enables authentication and auditing of access to resources
@@ -80,7 +80,7 @@ Note that nesting is possible with some of these objects. e.g. a computer can be
 
 ### Organizational Units (OUs)
 
-> collections which contain any object definde in the AD DS schema. OUs can also contain other OUs. 
+> collections which contain any object defined in the AD DS schema. OUs can also contain other OUs. 
 
 This is our first collection that also has an Action associated with it. OUs are the means that allow the management of objects.
 

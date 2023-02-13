@@ -47,7 +47,7 @@ We can create a container based off of our `container.json` with:
 curl -XPOST -H "Content-Type: application/json" --unix-socket /var/run/docker.sock -d "$(cat container.json)" http://localhost/containers/create
 ```
 
-The above command yields a response on stdout from the docker daemon. The response has the **four digit hex docker id** of the container we created. This id is needed for the remaining steps.
+The above command yields a response on `stdout` from the docker daemon. The response has the **four digit hex docker id** of the container we created. This id is needed for the remaining steps.
 
 At this point, the container is **not running yet**. We can start it using the docker id by:
 
@@ -85,9 +85,9 @@ Note the following
 - the two line breaks in the above are necessary to make the HTTP request valid
 - the `4_DIGIT_DOCKER_ID_FROM_ABOVE` must be replaced 
 
-Returns a root shell to us! We are root user of our custom container. Our custom contianer has the host file system mounted on it. Thus, we have full control of the host.
+Returns a root shell to us! We are root user of our custom container. Our custom container has the host file system mounted on it. Thus, we have full control of the host.
 
 
 ## conclusion
 
-The procedure detailed here is not an exhaustive description of what is possible from this misconfiguration. In general, if it can be done through the docker API then it can be done through similar methods as detailed above. This makes sense, as the `docker.sock` is pointed at localhost, which is within the "walled garden" and not subject to robust security standards. This escape vector can be eliminated by ensuring that the `docker.sock` is never accidentally mounted when containers are deployed. A redudancy measure could be implemented that uses the `find` command in all perspecitve mounts and halts container deployment in the event of `docker.sock` being present.
+The procedure detailed here is not an exhaustive description of what is possible from this misconfiguration. In general, if it can be done through the docker API then it can be done through similar methods as detailed above. This makes sense, as the `docker.sock` is pointed at localhost, which is within the "walled garden" and not subject to robust security standards. This escape vector can be eliminated by ensuring that the `docker.sock` is never accidentally mounted when containers are deployed. A redundancy measure could be implemented that uses the `find` command in all perspective mounts and halts container deployment in the event of `docker.sock` being present.

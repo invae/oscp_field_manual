@@ -5,7 +5,7 @@
 These fields are commonly abused by people when interacting with Active Directory. they are
 
 - info
-- descriptiopn
+- description
 - notes
 - telephones
 

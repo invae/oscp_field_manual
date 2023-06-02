@@ -115,3 +115,50 @@ p
 # add the g suffix to search/replace whole line
 # add the i suffix to search ignoring case
 ``` 
+
+
+## Visual Block Mode
+
+> Enter Visual Block Mode
+```bash
+ctrl + v
+```
+
+> Indent Block
+```bash
+ctrl + v
+# highlight desired lines
+>> # right indent
+<< # left indent
+```
+
+> Highlight Up to
+```bash
+ctrl + v
+# place curosor at desired start
+t + CHAR
+# where CHAR is the char you want to highlight up to
+```
+
+> Actions
+```bash
+# editing actions such as dd will act on highlighted section
+```
+
+> Multi-Line or Multi-Cursor behavior
+```bash
+ctrl + v 
+# select Vertical positions
+shift + i # enters insert module of visual block mode
+# input your desired change
+# change is not yet echoed on all lines
+esc
+# now action is repeated on all highlighted lines
+```
+
+
+
+
+
+
+

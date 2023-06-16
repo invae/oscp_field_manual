@@ -94,10 +94,29 @@ in web browser js tab
 web apps accross internet ( BECAREFUL - NO SENSITIVE DATA)
 ```
 
-> json
+
+### json
+
+> JSON can be heavy when the objects are large, `jq` can be used to cut up the objects and isolate the key-values that  are relevant
 ```sh
 jq tool  # very useful commandline tool for beautifying/dealing with json returned from APIs
 ```
+
+> The double `|` may seem redundant, but it emphasizes what we are doing and minimizes the risk of making a syntax error in `jq`'s pipeline. To get keys of a `jq` output. 
+```bash
+cat large-object.json  | jq '.' | jq 'keys'
+```
+
+> Limit output to keys of a single JSON object. 
+```bash
+cat large-object.json  | jq '.[0]' | jq 'keys'
+```
+
+> Continue diving into objects by `.referencing` fields. If a sub object is encountered in a field, it may be opened with `[]` appended to the name of the field. 
+```bash
+cat large-object.json  | jq '.[0]."FIELD_NAME"."SUB_OBJECT"[]' | jq 'keys'
+```
+
 
 
 ## no text editor available

@@ -8,5 +8,6 @@
 - [[cmdline_analysis]]
 - [[tmux]]
 - [[vi_or_vim]]
+- [[gpg]]
 
 

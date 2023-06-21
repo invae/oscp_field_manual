@@ -9,5 +9,6 @@
 - [[tmux]]
 - [[vi_or_vim]]
 - [[gpg]]
+- [[docker]]
 
 

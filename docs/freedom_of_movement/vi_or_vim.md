@@ -38,6 +38,16 @@ l # right
 i
 ```
 
+> enter `insert` mode, place cursor at end of line
+```bash
+shift + a
+```
+
+> enter `insert` mode, place cursor at start of line
+```bash
+shift + i
+```
+
 
 > exit any `mode`, such as `copy`, `insert`, `visual` , etc
 ```bash

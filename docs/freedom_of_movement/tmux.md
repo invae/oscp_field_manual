@@ -13,7 +13,7 @@ set -g history-limit 9001
 
 ## tmux essentials
 
-> if you are ever lost in your tmux session, you can list all windows in pane in a GUI, which provides a preview of what is on each window and pane.
+> If you are ever lost in your tmux session, you can list all windows in pane in a GUI, which provides a preview of what is on each window and pane.
 ```cmd
 PREFIX w
 ```

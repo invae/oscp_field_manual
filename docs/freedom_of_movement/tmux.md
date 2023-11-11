@@ -81,7 +81,8 @@ PREFIX $
 
 ### tmux scripting
 
-Powerful for repeated tasks such as setting up a workspace for attacking an single target. Possible to create initial workspace directory structure, set environment variables specific to a tmux session and stage initial recon commands. 
+Powerful for repeated tasks such as setting up a workspace for attacking an single target. 
+Possible to create initial workspace directory structure, set environment variables specific to a tmux session and stage initial recon commands. 
 
 > example; note `C-m` is the way tmux scripting sends `Enter` to a session
 ```cmd

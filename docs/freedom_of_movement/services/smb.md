@@ -34,7 +34,11 @@ smb> dir /ah             ; dir attribute hidden
 ```
 
 
+## connect to share using hash
 
+```
+smbclient //10.10.10.10/sharename -U username --pw-nt-hash C5B11AF4466043323EA4E7838C886C73
+```
 
 
 
